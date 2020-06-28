@@ -10,7 +10,7 @@ Lorem Ipsum is simply dummy text of the printing and typesetting?
 Lorem Ipsum is simply dummy text of the printing and typesetting 
 Lorem Ipsum is simply dummy text of the printing and typesetting
 Lorem Ipsum is simply dummy text of the printing and typesetting 
-Lorem Ipsum is simply dummy text of the printing and typesettings""")
+Lorem Ipsum is simply dummy texts of the printing and typesettings""")
 
 f=open("solution.txt","r")
 st=f.read()
