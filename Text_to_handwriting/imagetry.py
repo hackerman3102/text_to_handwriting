@@ -18,7 +18,7 @@ st=f.read()
 
 img = Image.new('RGB', (1366   , 768), (255,255,255))
 draw = ImageDraw.Draw(img)
-font=ImageFont.truetype("arial.ttf",size=30)
+font=ImageFont.truetype("Myfont.ttf",size=30)
 
 a=36
 while(a<768):
