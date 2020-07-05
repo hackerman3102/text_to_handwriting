@@ -5,14 +5,8 @@ import io
 import PIL
 import textwrap
 import new
-
-
-     
-
-
-
-
-
+import os
+import random
 
 f=open("solution.txt","r") #opens text file
 st_list=f.readlines()  #reads text file to a list of string
@@ -24,12 +18,14 @@ pagenum=1
 img,draw=new.newImg()
 y_text=100
 newpage=False
-control=0
 height=30
 
-print(st_list)
+
 
 for para in st_list:
+    
+
+
     if("?" in para):
         color=(0,0,255)
     else:
@@ -37,10 +33,15 @@ for para in st_list:
 
     textlines=textwrap.wrap(para,width=55)
     for line in textlines:
-        if(y_text>768):
+        x=1#random.randint(1,1)
+        if(x==1):
+            font=ImageFont.truetype("MyFont.ttf",size=30)
+        else:
+            font=ImageFont.truetype("newFont.ttf",size=30)
+        if(y_text>699):
             newpage=True  
         if(newpage):
-            img.save("image{}.jpg".format(pagenum)) 
+            img.save(r"images/image{}.jpg".format(pagenum)) 
             pagenum+=1
             img,draw=new.newImg()
             y_text=100
@@ -54,8 +55,21 @@ for para in st_list:
         y_text += height
     y_text+=height    
         
-img.save("image{}.jpg".format(pagenum)) 
+img.save(r"images/image{}.jpg".format(pagenum)) 
 img.show()              
+imglst=[i for i in os.listdir(r'images/') if i.endswith(".jpg")]
+print(imglst)
+
+lst=[]
+for i in imglst:
+    a=Image.open(r"images/{}".format(i))
+    lst.append(a)
+
+lst[0].save("Converted.pdf",resolution=100.0, save_all=True, append_images=lst[1:])
+
+
+
+
 
 
 
